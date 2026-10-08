@@ -182,6 +182,25 @@ describe('extraction', () => {
   });
 });
 
+describe('thèmes', () => {
+  it('fusionne les séquences trop courtes dans la précédente', () => {
+    const topics = buildTopics(
+      [
+        { title: 'Ouverture', start: '00:00' },
+        { title: 'Retraites', start: '05:00' },
+        { title: 'Aparté', start: '20:00' }, // 1 min sur 60 : trop courte
+        { title: 'Santé', start: '21:00' },
+      ],
+      3600,
+    );
+    expect(topics.map((t) => [t.title, t.start, t.end])).toEqual([
+      ['Ouverture', 0, 300],
+      ['Retraites', 300, 1260],
+      ['Santé', 1260, 3600],
+    ]);
+  });
+});
+
 describe('bilan', () => {
   it('calcule les statistiques de façon déterministe', () => {
     const a = sampleAnalysis();

@@ -39,319 +39,613 @@
       "id": "t1"
     },
     {
+      "start": 20,
+      "end": 110,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t2"
+    },
+    {
+      "start": 110,
+      "end": 200,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t3"
+    },
+    {
+      "start": 200,
+      "end": 240,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t4"
+    },
+    {
       "start": 240,
       "end": 260,
       "speakerId": "s1",
       "text": "Commençons par le pouvoir d'achat, première préoccupation des Français.",
-      "id": "t2"
+      "id": "t5"
     },
     {
       "start": 240,
       "end": 300,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics.",
-      "id": "t3"
+      "id": "t6"
     },
     {
       "start": 300,
       "end": 355,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir. Concrètement, je porterai le SMIC à 1 600 euros net d'ici 2028. C'est un engagement précis.",
-      "id": "t4"
+      "id": "t7"
     },
     {
       "start": 360,
       "end": 410,
       "speakerId": "s3",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t5"
+      "id": "t8"
+    },
+    {
+      "start": 410,
+      "end": 460,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t9"
     },
     {
       "start": 460,
       "end": 520,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir.",
-      "id": "t6"
+      "id": "t10"
     },
     {
       "start": 520,
       "end": 575,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics. Concrètement, je baisserai l'impôt sur le revenu de 10 % pour tous les ménages. C'est un engagement précis.",
-      "id": "t7"
+      "id": "t11"
     },
     {
       "start": 580,
       "end": 630,
       "speakerId": "s2",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t8"
+      "id": "t12"
+    },
+    {
+      "start": 630,
+      "end": 720,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t13"
+    },
+    {
+      "start": 720,
+      "end": 810,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t14"
+    },
+    {
+      "start": 810,
+      "end": 900,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t15"
+    },
+    {
+      "start": 900,
+      "end": 990,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t16"
+    },
+    {
+      "start": 990,
+      "end": 1080,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t17"
     },
     {
       "start": 1080,
       "end": 1100,
       "speakerId": "s1",
       "text": "Passons au logement.",
-      "id": "t9"
+      "id": "t18"
+    },
+    {
+      "start": 1100,
+      "end": 1140,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t19"
     },
     {
       "start": 1140,
       "end": 1200,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics.",
-      "id": "t10"
+      "id": "t20"
     },
     {
       "start": 1200,
       "end": 1255,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir. Concrètement, nous construirons 150 000 logements sociaux chaque année. C'est un engagement précis.",
-      "id": "t11"
+      "id": "t21"
     },
     {
       "start": 1260,
       "end": 1310,
       "speakerId": "s3",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t12"
+      "id": "t22"
+    },
+    {
+      "start": 1310,
+      "end": 1400,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t23"
+    },
+    {
+      "start": 1400,
+      "end": 1440,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t24"
     },
     {
       "start": 1440,
       "end": 1500,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir.",
-      "id": "t13"
+      "id": "t25"
     },
     {
       "start": 1500,
       "end": 1555,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics. Concrètement, on supprimera 100 000 postes de fonctionnaires d'État. C'est un engagement précis.",
-      "id": "t14"
+      "id": "t26"
     },
     {
       "start": 1560,
       "end": 1610,
       "speakerId": "s2",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t15"
+      "id": "t27"
+    },
+    {
+      "start": 1610,
+      "end": 1700,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t28"
+    },
+    {
+      "start": 1700,
+      "end": 1740,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t29"
     },
     {
       "start": 1740,
       "end": 1760,
       "speakerId": "s1",
       "text": "Parlons maintenant de fiscalité.",
-      "id": "t16"
+      "id": "t30"
+    },
+    {
+      "start": 1760,
+      "end": 1840,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t31"
     },
     {
       "start": 1840,
       "end": 1900,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics.",
-      "id": "t17"
+      "id": "t32"
     },
     {
       "start": 1900,
       "end": 1955,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir. Concrètement, je rétablirai l'ISF dès la première loi de finances. C'est un engagement précis.",
-      "id": "t18"
+      "id": "t33"
     },
     {
       "start": 1960,
       "end": 2010,
       "speakerId": "s3",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t19"
+      "id": "t34"
+    },
+    {
+      "start": 2010,
+      "end": 2100,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t35"
+    },
+    {
+      "start": 2100,
+      "end": 2190,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t36"
+    },
+    {
+      "start": 2190,
+      "end": 2280,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t37"
+    },
+    {
+      "start": 2280,
+      "end": 2370,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t38"
+    },
+    {
+      "start": 2370,
+      "end": 2460,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t39"
+    },
+    {
+      "start": 2460,
+      "end": 2520,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t40"
     },
     {
       "start": 2520,
       "end": 2540,
       "speakerId": "s1",
       "text": "Abordons l'énergie et le climat.",
-      "id": "t20"
+      "id": "t41"
+    },
+    {
+      "start": 2540,
+      "end": 2630,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t42"
     },
     {
       "start": 2640,
       "end": 2700,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir.",
-      "id": "t21"
+      "id": "t43"
     },
     {
       "start": 2700,
       "end": 2755,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics. Concrètement, six nouveaux réacteurs EPR2 seront en service avant 2035. C'est un engagement précis.",
-      "id": "t22"
+      "id": "t44"
     },
     {
       "start": 2760,
       "end": 2810,
       "speakerId": "s2",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t23"
+      "id": "t45"
+    },
+    {
+      "start": 2810,
+      "end": 2840,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t46"
     },
     {
       "start": 2840,
       "end": 2900,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics.",
-      "id": "t24"
+      "id": "t47"
     },
     {
       "start": 2900,
       "end": 2955,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir. Concrètement, les transports en commun seront gratuits pour tous les moins de 26 ans. C'est un engagement précis.",
-      "id": "t25"
+      "id": "t48"
     },
     {
       "start": 2960,
       "end": 3010,
       "speakerId": "s3",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t26"
+      "id": "t49"
+    },
+    {
+      "start": 3010,
+      "end": 3100,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t50"
+    },
+    {
+      "start": 3100,
+      "end": 3180,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t51"
     },
     {
       "start": 3180,
       "end": 3200,
       "speakerId": "s1",
       "text": "Venons-en à la sécurité.",
-      "id": "t27"
+      "id": "t52"
+    },
+    {
+      "start": 3200,
+      "end": 3240,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t53"
     },
     {
       "start": 3240,
       "end": 3300,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir.",
-      "id": "t28"
+      "id": "t54"
     },
     {
       "start": 3300,
       "end": 3355,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics. Concrètement, nous créerons 20 000 places de prison supplémentaires. C'est un engagement précis.",
-      "id": "t29"
+      "id": "t55"
     },
     {
       "start": 3360,
       "end": 3410,
       "speakerId": "s2",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t30"
+      "id": "t56"
+    },
+    {
+      "start": 3410,
+      "end": 3500,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t57"
+    },
+    {
+      "start": 3500,
+      "end": 3590,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t58"
+    },
+    {
+      "start": 3590,
+      "end": 3680,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t59"
+    },
+    {
+      "start": 3680,
+      "end": 3770,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t60"
     },
     {
       "start": 3780,
       "end": 3800,
       "speakerId": "s1",
       "text": "La santé et l'hôpital, maintenant.",
-      "id": "t31"
+      "id": "t61"
+    },
+    {
+      "start": 3800,
+      "end": 3840,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t62"
     },
     {
       "start": 3840,
       "end": 3900,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics.",
-      "id": "t32"
+      "id": "t63"
     },
     {
       "start": 3900,
       "end": 3955,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir. Concrètement, nous recruterons 20 000 soignants dans l'hôpital public. C'est un engagement précis.",
-      "id": "t33"
+      "id": "t64"
     },
     {
       "start": 3960,
       "end": 4010,
       "speakerId": "s3",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t34"
+      "id": "t65"
+    },
+    {
+      "start": 4010,
+      "end": 4100,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t66"
+    },
+    {
+      "start": 4100,
+      "end": 4190,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t67"
+    },
+    {
+      "start": 4190,
+      "end": 4280,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t68"
+    },
+    {
+      "start": 4280,
+      "end": 4370,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t69"
     },
     {
       "start": 4380,
       "end": 4400,
       "speakerId": "s1",
       "text": "Un mot sur la jeunesse.",
-      "id": "t35"
+      "id": "t70"
+    },
+    {
+      "start": 4400,
+      "end": 4440,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t71"
     },
     {
       "start": 4440,
       "end": 4500,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir.",
-      "id": "t36"
+      "id": "t72"
     },
     {
       "start": 4500,
       "end": 4555,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics. Concrètement, j'interdirai les réseaux sociaux aux moins de 15 ans. C'est un engagement précis.",
-      "id": "t37"
+      "id": "t73"
     },
     {
       "start": 4560,
       "end": 4610,
       "speakerId": "s2",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t38"
+      "id": "t74"
+    },
+    {
+      "start": 4610,
+      "end": 4640,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t75"
     },
     {
       "start": 4640,
       "end": 4700,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics.",
-      "id": "t39"
+      "id": "t76"
     },
     {
       "start": 4700,
       "end": 4755,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir. Concrètement, je rendrai du pouvoir d'achat aux classes moyennes. C'est un engagement précis.",
-      "id": "t40"
+      "id": "t77"
     },
     {
       "start": 4760,
       "end": 4810,
       "speakerId": "s3",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t41"
+      "id": "t78"
+    },
+    {
+      "start": 4810,
+      "end": 4900,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t79"
+    },
+    {
+      "start": 4900,
+      "end": 4990,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t80"
+    },
+    {
+      "start": 4990,
+      "end": 5040,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t81"
     },
     {
       "start": 5040,
       "end": 5060,
       "speakerId": "s1",
       "text": "Il est temps de conclure. Deux minutes chacun.",
-      "id": "t42"
+      "id": "t82"
     },
     {
       "start": 5040,
       "end": 5100,
       "speakerId": "s2",
       "text": "Les Français attendent des réponses concrètes, et c'est ce que je propose ce soir.",
-      "id": "t43"
+      "id": "t83"
     },
     {
       "start": 5070,
       "end": 5110,
       "speakerId": "s2",
       "text": "Je le répète : le SMIC à 1 600 euros, je le répète, ce sera la première mesure de mon mandat.",
-      "id": "t44"
+      "id": "t84"
     },
     {
       "start": 5100,
       "end": 5155,
       "speakerId": "s3",
       "text": "Il faut dire la vérité aux Français sur l'état de nos comptes publics. Concrètement, je rétablirai un service militaire obligatoire de trois mois. C'est un engagement précis.",
-      "id": "t45"
+      "id": "t85"
     },
     {
       "start": 5160,
       "end": 5210,
       "speakerId": "s2",
       "text": "Ce n'est pas sérieux, vous ne dites pas comment vous le financez.",
-      "id": "t46"
+      "id": "t86"
+    },
+    {
+      "start": 5210,
+      "end": 5300,
+      "speakerId": "s2",
+      "text": "Je veux répondre précisément sur ce point, parce que les Français méritent mieux que des slogans.",
+      "id": "t87"
+    },
+    {
+      "start": 5300,
+      "end": 5390,
+      "speakerId": "s3",
+      "text": "Ce que vous proposez n'est pas financé, et vous le savez très bien.",
+      "id": "t88"
     }
   ],
   "topics": [
@@ -415,7 +709,7 @@
       "id": "p1",
       "speakerId": "s2",
       "start": 300,
-      "segmentId": "t4",
+      "segmentId": "t7",
       "quote": "je porterai le SMIC à 1 600 euros net d'ici 2028",
       "quoteVerified": true,
       "statement": "Porter le SMIC à 1 600 € net par mois d'ici 2028",
@@ -424,7 +718,7 @@
       "specificity": "precise",
       "repeats": [
         {
-          "segmentId": "t44",
+          "segmentId": "t84",
           "start": 5070,
           "quote": "le SMIC à 1 600 euros, je le répète"
         }
@@ -487,7 +781,7 @@
       "id": "p2",
       "speakerId": "s3",
       "start": 520,
-      "segmentId": "t7",
+      "segmentId": "t11",
       "quote": "je baisserai l'impôt sur le revenu de 10 % pour tous les ménages",
       "quoteVerified": true,
       "statement": "Baisser l'impôt sur le revenu de 10 % pour tous les ménages imposables",
@@ -553,7 +847,7 @@
       "id": "p3",
       "speakerId": "s2",
       "start": 1200,
-      "segmentId": "t11",
+      "segmentId": "t21",
       "quote": "nous construirons 150 000 logements sociaux chaque année",
       "quoteVerified": true,
       "statement": "Construire 150 000 logements sociaux par an",
@@ -605,7 +899,7 @@
       "id": "p4",
       "speakerId": "s3",
       "start": 1500,
-      "segmentId": "t14",
+      "segmentId": "t26",
       "quote": "on supprimera 100 000 postes de fonctionnaires d'État",
       "quoteVerified": true,
       "statement": "Supprimer 100 000 postes dans la fonction publique d'État",
@@ -651,7 +945,7 @@
       "id": "p5",
       "speakerId": "s2",
       "start": 1900,
-      "segmentId": "t18",
+      "segmentId": "t33",
       "quote": "je rétablirai l'ISF dès la première loi de finances",
       "quoteVerified": true,
       "statement": "Rétablir l'impôt de solidarité sur la fortune (ISF)",
@@ -717,7 +1011,7 @@
       "id": "p6",
       "speakerId": "s3",
       "start": 2700,
-      "segmentId": "t22",
+      "segmentId": "t44",
       "quote": "six nouveaux réacteurs EPR2 seront en service avant 2035",
       "quoteVerified": true,
       "statement": "Construire six nouveaux réacteurs nucléaires EPR2 d'ici 2035",
@@ -783,7 +1077,7 @@
       "id": "p7",
       "speakerId": "s2",
       "start": 2900,
-      "segmentId": "t25",
+      "segmentId": "t48",
       "quote": "les transports en commun seront gratuits pour tous les moins de 26 ans",
       "quoteVerified": true,
       "statement": "Rendre les transports en commun gratuits pour les moins de 26 ans",
@@ -829,7 +1123,7 @@
       "id": "p8",
       "speakerId": "s3",
       "start": 3300,
-      "segmentId": "t29",
+      "segmentId": "t55",
       "quote": "nous créerons 20 000 places de prison supplémentaires",
       "quoteVerified": true,
       "statement": "Créer 20 000 places de prison supplémentaires",
@@ -875,7 +1169,7 @@
       "id": "p9",
       "speakerId": "s2",
       "start": 3900,
-      "segmentId": "t33",
+      "segmentId": "t64",
       "quote": "nous recruterons 20 000 soignants dans l'hôpital public",
       "quoteVerified": true,
       "statement": "Recruter 20 000 soignants supplémentaires à l'hôpital public",
@@ -927,7 +1221,7 @@
       "id": "p10",
       "speakerId": "s3",
       "start": 4500,
-      "segmentId": "t37",
+      "segmentId": "t73",
       "quote": "j'interdirai les réseaux sociaux aux moins de 15 ans",
       "quoteVerified": true,
       "statement": "Interdire l'accès aux réseaux sociaux aux moins de 15 ans",
@@ -973,7 +1267,7 @@
       "id": "p11",
       "speakerId": "s2",
       "start": 4700,
-      "segmentId": "t40",
+      "segmentId": "t77",
       "quote": "je rendrai du pouvoir d'achat aux classes moyennes",
       "quoteVerified": true,
       "statement": "Rendre du pouvoir d'achat aux classes moyennes",
@@ -1014,7 +1308,7 @@
       "id": "p12",
       "speakerId": "s3",
       "start": 5100,
-      "segmentId": "t45",
+      "segmentId": "t85",
       "quote": "je rétablirai un service militaire obligatoire de trois mois",
       "quoteVerified": true,
       "statement": "Instaurer un service militaire obligatoire de trois mois",
@@ -1080,7 +1374,7 @@
           "budget": 4.5,
           "operational": 4.3
         },
-        "speakingTimeSec": 1030
+        "speakingTimeSec": 2650
       },
       "summary": "Claire Fontaine a présenté six engagements, majoritairement précis et centrés sur le pouvoir d'achat, le logement et les services publics. Les mesures sont en général réalisables sur le plan juridique ; leur financement repose surtout sur le rétablissement de l'ISF, dont le rendement estimé reste inférieur au coût cumulé des propositions. Une promesse sur le pouvoir d'achat des classes moyennes est restée trop générale pour être évaluée.",
       "strengths": [
@@ -1109,7 +1403,7 @@
           "budget": 4.8,
           "operational": 3.7
         },
-        "speakingTimeSec": 990
+        "speakingTimeSec": 2550
       },
       "summary": "Marc Delorme a présenté six engagements précis, axés sur la fiscalité, l'énergie et la sécurité. Plusieurs mesures se heurtent à des contraintes de calendrier ou de capacité (réacteurs EPR2 d'ici 2035, service militaire obligatoire). La baisse uniforme de l'impôt sur le revenu n'est pas accompagnée d'économies chiffrées équivalentes.",
       "strengths": [

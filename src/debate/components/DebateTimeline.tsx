@@ -1,5 +1,5 @@
-import { useMemo, useState, type MouseEvent } from 'react';
-import type { DebateAnalysis, DebatePromise, Speaker } from '../../../shared/debate-types';
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
+import type { DebateAnalysis, DebatePromise, Speaker, Topic, TranscriptSegment } from '../../../shared/debate-types';
 import { formatTimestamp } from '../../../shared/time-format';
 import { BAND_STYLES, bandOf, cn, formatScore } from '../score';
 
@@ -17,10 +17,57 @@ const LANE_TINTS = ['bg-blue-200', 'bg-sky-200', 'bg-violet-200', 'bg-teal-200']
 const pct = (t: number, duration: number) => `${Math.min(100, Math.max(0, (t / duration) * 100))}%`;
 
 function tickStep(duration: number) {
+  if (duration <= 5 * 60) return 30;
+  if (duration <= 15 * 60) return 60;
   if (duration <= 30 * 60) return 5 * 60;
   if (duration <= 100 * 60) return 10 * 60;
   if (duration <= 200 * 60) return 20 * 60;
   return 30 * 60;
+}
+
+/**
+ * Regroupe les prises de parole proches en barres continues (sinon on obtient un pointillé illisible).
+ * `gap` : écart maximal, en secondes, entre deux segments fusionnés.
+ */
+function speakingBars(segments: TranscriptSegment[], gap: number): Array<[number, number]> {
+  const bars: Array<[number, number]> = [];
+  for (const s of [...segments].sort((a, b) => a.start - b.start)) {
+    const last = bars.at(-1);
+    if (last && s.start - last[1] <= gap) last[1] = Math.max(last[1], s.end);
+    else bars.push([s.start, s.end]);
+  }
+  return bars;
+}
+
+const LABEL_FONT = '600 11px ui-sans-serif, system-ui, sans-serif';
+const LABEL_PADDING = 16; // px-2 de chaque côté
+let measureCtx: CanvasRenderingContext2D | null = null;
+
+/** Largeur réelle d'un texte dans la police des étiquettes de thème. */
+function textWidth(text: string): number {
+  measureCtx ??= document.createElement('canvas').getContext('2d');
+  if (!measureCtx) return text.length * 7;
+  measureCtx.font = LABEL_FONT;
+  return measureCtx.measureText(text).width;
+}
+
+/** Le titre tient-il en entier, sur deux lignes au plus, dans `width` px ? */
+function labelFits(title: string, width: number): boolean {
+  const available = width - LABEL_PADDING;
+  const space = textWidth(' ');
+  let lines = 1;
+  let line = 0;
+  for (const word of title.split(/\s+/)) {
+    const w = textWidth(word);
+    if (w > available) return false;
+    if (line === 0) line = w;
+    else if (line + space + w <= available) line += space + w;
+    else {
+      lines++;
+      line = w;
+    }
+  }
+  return lines <= 2;
 }
 
 /** Décale verticalement les pastilles trop proches pour qu'elles restent cliquables. */
@@ -41,6 +88,20 @@ export function DebateTimeline({ analysis, currentTime, selectedId, onSelect, on
   const duration = Math.max(analysis.video.durationSec, 1);
   const candidates = analysis.speakers.filter((s) => s.role === 'candidate');
   const [hovered, setHovered] = useState<DebatePromise | null>(null);
+  const [hoveredTopic, setHoveredTopic] = useState<Topic | null>(null);
+  // Largeur réelle de la piste, pour n'afficher que les noms de thèmes qui tiennent en entier.
+  const track = useRef<HTMLDivElement>(null);
+  const [trackWidth, setTrackWidth] = useState(0);
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    const observer = new ResizeObserver(([entry]) => setTrackWidth(entry.contentRect.width));
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+  // Un seul orateur (discours) : le temps de parole n'apporte rien, on ne l'affiche pas.
+  const showSpeakingTime = candidates.length > 1;
+  const barGap = Math.max(15, duration / 300);
 
   const ticks = useMemo(() => {
     const step = tickStep(duration);
@@ -62,7 +123,12 @@ export function DebateTimeline({ analysis, currentTime, selectedId, onSelect, on
   const lane = (speaker: Speaker, index: number) => {
     const promises = analysis.promises.filter((p) => p.speakerId === speaker.id);
     const levels = stackLevels(promises, duration);
-    const segments = analysis.transcript.filter((s) => s.speakerId === speaker.id);
+    const bars = showSpeakingTime
+      ? speakingBars(
+          analysis.transcript.filter((s) => s.speakerId === speaker.id),
+          barGap,
+        )
+      : [];
     return (
       <div key={speaker.id} className="contents">
         <div className="flex flex-col justify-center border-b border-slate-100 py-3 pr-4">
@@ -77,14 +143,11 @@ export function DebateTimeline({ analysis, currentTime, selectedId, onSelect, on
         <div className="relative h-24 border-b border-slate-100">
           <div className="absolute inset-x-2 inset-y-0 cursor-pointer" onClick={seekFromClick}>
             {/* Temps de parole */}
-            {segments.map((s) => (
+            {bars.map(([start, end]) => (
               <div
-                key={s.id}
+                key={start}
                 className={cn('absolute bottom-3 h-1.5 rounded-full', LANE_TINTS[index % LANE_TINTS.length])}
-                style={{
-                  left: pct(s.start, duration),
-                  width: pct(Math.max(s.end - s.start, duration / 600), duration),
-                }}
+                style={{ left: pct(start, duration), width: pct(Math.max(end - start, duration / 400), duration) }}
               />
             ))}
             {/* Promesses */}
@@ -131,18 +194,25 @@ export function DebateTimeline({ analysis, currentTime, selectedId, onSelect, on
       <div className="flex items-center border-b border-slate-100 py-2 pr-4">
         <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase">Thèmes</span>
       </div>
-      <div className="relative h-10 border-b border-slate-100">
-        <div className="absolute inset-x-2 inset-y-0">
+      <div className="relative h-12 border-b border-slate-100">
+        <div ref={track} className="absolute inset-x-2 inset-y-0">
           {analysis.topics.map((t, i) => {
             const active = currentTime >= t.start && currentTime < t.end;
+            const widthPx = ((t.end - t.start) / duration) * trackWidth - 2;
+            // Nom affiché seulement s'il tient en entier ; sinon zone teintée, nom au survol.
+            const showLabel = trackWidth > 0 && labelFits(t.title, widthPx);
             return (
               <button
                 key={t.id}
                 type="button"
                 onClick={() => onSeek(t.start)}
-                title={`${formatTimestamp(t.start)} — ${t.title}`}
+                onMouseEnter={() => setHoveredTopic(t)}
+                onMouseLeave={() => setHoveredTopic(null)}
+                onFocus={() => setHoveredTopic(t)}
+                onBlur={() => setHoveredTopic(null)}
+                aria-label={`${formatTimestamp(t.start)} — ${t.title}`}
                 className={cn(
-                  'absolute inset-y-1 truncate rounded-lg px-2 text-left text-[11px] font-semibold transition-colors',
+                  'absolute inset-y-1 flex items-center overflow-hidden rounded-lg px-2 text-left text-[11px] leading-tight font-semibold transition-colors',
                   active
                     ? 'bg-blue-50 text-blue-700 ring-1 ring-blue-200'
                     : i % 2
@@ -152,7 +222,7 @@ export function DebateTimeline({ analysis, currentTime, selectedId, onSelect, on
                 )}
                 style={{ left: pct(t.start, duration), width: `calc(${pct(t.end - t.start, duration)} - 2px)` }}
               >
-                {t.title}
+                {showLabel ? t.title : null}
               </button>
             );
           })}
@@ -207,9 +277,17 @@ export function DebateTimeline({ analysis, currentTime, selectedId, onSelect, on
               </span>
             )}
           </span>
+        ) : hoveredTopic ? (
+          <span>
+            <span className="font-mono text-xs font-semibold text-slate-400">
+              {formatTimestamp(hoveredTopic.start)} – {formatTimestamp(hoveredTopic.end)}
+            </span>{' '}
+            <span className="text-[10px] font-bold tracking-[0.2em] text-blue-600 uppercase">Thème</span>{' '}
+            <span className="font-semibold text-slate-900">{hoveredTopic.title}</span>
+          </span>
         ) : (
           <span className="text-slate-400">
-            Survolez une pastille pour lire la promesse, cliquez pour l’analyse et la vidéo.
+            Survolez une pastille ou un thème pour le lire ; cliquez pour l’analyse et la vidéo.
           </span>
         )}
       </div>
