@@ -1,0 +1,31 @@
+{
+	"name": "default-container",
+
+	"dockerFile": "../Dockerfile",
+	"context": "..",
+
+	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/secrets/local-secrets.env,target=/workspaces/${localWorkspaceFolderBasename}/local-secrets.env,type=bind,consistency=cached,readonly",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/tmp/host-ssh,type=bind,consistency=cached,readonly"
+	],
+
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {}
+	},
+
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			},
+			"extensions": [
+				"ms-toolsai.jupyter",
+				"ms-python.python"
+			]
+		}
+	},
+
+	"postCreateCommand": "bash .devcontainer/setup-environment.sh"
+}

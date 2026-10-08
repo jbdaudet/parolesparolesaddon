@@ -1,0 +1,12 @@
+{
+	"recommendations": [
+		   //"ms-python.python"
+		  //,"github.copilot"
+		  //,"ms-toolsai.datawrangler"
+        //,"databricks.databricks"
+	],
+
+	"unwantedRecommendations": [
+		
+	]
+}
