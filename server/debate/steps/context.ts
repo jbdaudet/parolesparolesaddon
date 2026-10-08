@@ -39,6 +39,11 @@ export function describeSpeakers(speakers: Speaker[]): string {
 export function formatTranscript(analysis: DebateAnalysis, segments = analysis.transcript): string {
   const speakers = speakerById(analysis);
   return segments
-    .map((t) => `[${t.id} | ${formatTimestamp(t.start)} | ${speakers.get(t.speakerId)?.name ?? 'Inconnu'}] ${t.text}`)
+    .map(
+      (t) =>
+        `[${t.id} | ${formatTimestamp(t.start)} | ${speakers.get(t.speakerId)?.name ?? 'Inconnu'}${
+          t.paraphrased ? ' | résumé' : ''
+        }] ${t.text}`,
+    )
     .join('\n');
 }

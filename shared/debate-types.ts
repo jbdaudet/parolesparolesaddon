@@ -101,6 +101,11 @@ export interface TranscriptSegment {
   end: number;
   speakerId: string;
   text: string;
+  /**
+   * true si Gemini a refusé la transcription mot pour mot de ce passage (droits d'auteur) :
+   * `text` est alors un résumé à la troisième personne, pas les mots prononcés.
+   */
+  paraphrased?: boolean;
 }
 
 export interface Topic {
@@ -129,6 +134,8 @@ export interface DebatePromise {
   quote: string;
   /** false si la citation n'a pas été retrouvée telle quelle dans le segment. */
   quoteVerified: boolean;
+  /** true si la promesse vient d'un passage résumé : `quote` est alors un résumé, pas une citation. */
+  paraphrased?: boolean;
   /** Reformulation autonome, telle qu'on la taperait dans l'analyseur du site. */
   statement: string;
   theme: string;

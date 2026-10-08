@@ -37,10 +37,20 @@ export function PromiseDetail({ promise, speaker, topicTitle, onSeek }: Props) {
         <h3 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">{promise.statement}</h3>
 
         <figure className="rounded-2xl border border-slate-100 bg-slate-50/80 p-5">
-          <blockquote className="flex gap-3 text-sm leading-relaxed text-slate-700 italic">
-            <Quote className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />
-            <span>« {promise.quote} »</span>
-          </blockquote>
+          {promise.paraphrased ? (
+            // Passage résumé (transcription mot pour mot refusée) : jamais présenté comme une citation.
+            <div className="space-y-2 text-sm leading-relaxed text-slate-700">
+              <span className="block text-[10px] font-bold tracking-[0.2em] text-slate-400 uppercase">
+                Propos résumés
+              </span>
+              <p>{promise.quote}</p>
+            </div>
+          ) : (
+            <blockquote className="flex gap-3 text-sm leading-relaxed text-slate-700 italic">
+              <Quote className="mt-0.5 h-4 w-4 shrink-0 text-blue-300" />
+              <span>« {promise.quote} »</span>
+            </blockquote>
+          )}
           <figcaption className="mt-4 flex flex-wrap items-center gap-3 text-xs">
             <span className="font-bold text-slate-900">{speaker?.name ?? 'Orateur inconnu'}</span>
             <button
@@ -50,9 +60,12 @@ export function PromiseDetail({ promise, speaker, topicTitle, onSeek }: Props) {
             >
               <Play className="h-3 w-3 fill-current" /> Voir à {formatTimestamp(promise.start)}
             </button>
-            {!promise.quoteVerified && (
+            {(promise.paraphrased || !promise.quoteVerified) && (
               <span className="inline-flex items-center gap-1 rounded-full border border-amber-200 bg-amber-50 px-2.5 py-1 font-semibold text-amber-700">
-                <TriangleAlert className="h-3 w-3" /> Citation à vérifier dans la vidéo
+                <TriangleAlert className="h-3 w-3" />
+                {promise.paraphrased
+                  ? 'Transcription exacte indisponible (droits d’auteur) : écoutez le passage'
+                  : 'Citation à vérifier dans la vidéo'}
               </span>
             )}
           </figcaption>

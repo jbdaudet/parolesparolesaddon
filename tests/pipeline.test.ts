@@ -32,6 +32,8 @@ class FakeLlm implements LlmClient {
   failEvaluations = false;
   /** Simule une clé gratuite : la recherche Google est refusée pour quota. */
   searchQuotaExceeded = false;
+  /** Simule le filtre « recitation » de Gemini sur la transcription mot pour mot. */
+  recitationBlocked = false;
   format: 'debate' | 'speech' = 'debate';
 
   async generateJson<T>(req: JsonRequest): Promise<JsonResponse<T>> {
@@ -54,7 +56,11 @@ class FakeLlm implements LlmClient {
             { name: 'Bruno', role: 'candidate', affiliation: 'Parti B', how_to_recognize: 'à droite' },
           ],
         });
-      case 'transcribe': {
+      case 'transcribe':
+      case 'transcribe-summary': {
+        if (label === 'transcribe' && this.recitationBlocked) {
+          throw new Error('[transcribe 0:00] 400 Request blocked due to copyright/recitation content.');
+        }
         // Tronçons de 600 s, horodatages relatifs à l'extrait.
         const first = req.input[0].type === 'video' && req.input[0].processing?.start_offset === '0s';
         return respond({
@@ -204,6 +210,23 @@ describe('évaluation sans recherche Google', () => {
     const evaluations = deps.llm.calls.filter((c) => c.label === 'evaluate');
     expect(evaluations.filter((c) => c.googleSearch).length).toBeLessThanOrEqual(deps.config.concurrency);
     expect(evaluations.filter((c) => !c.googleSearch)).toHaveLength(2);
+  });
+});
+
+describe('passage protégé (filtre « recitation »)', () => {
+  it('résume les propos au lieu de les transcrire, et le signale', async () => {
+    const deps = setup();
+    deps.llm.recitationBlocked = true;
+    const a = await runPipeline(deps, { videoId: VIDEO });
+    expect(a.completedSteps).toContain('summarize');
+    expect(a.transcript.every((t) => t.paraphrased)).toBe(true);
+    expect(a.promises.map((p) => [p.paraphrased, p.quoteVerified])).toEqual([
+      [true, false],
+      [true, false],
+    ]);
+    expect(a.warnings.filter((w) => w.includes('droits d’auteur'))).toHaveLength(2);
+    const extractPrompt = deps.llm.calls.find((c) => c.label.startsWith('extract'))!.input[0];
+    expect(extractPrompt.type === 'text' && extractPrompt.text).toContain('| résumé]');
   });
 });
 

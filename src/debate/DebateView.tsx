@@ -1,4 +1,4 @@
-import { Info, TriangleAlert } from 'lucide-react';
+import { TriangleAlert } from 'lucide-react';
 import { AnimatePresence, motion } from 'motion/react';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { KIND_LABELS, type DebateAnalysis, type DebatePromise } from '../../shared/debate-types';
@@ -55,12 +55,6 @@ export function DebateView({ analysis }: { analysis: DebateAnalysis }) {
           {` · ${analysis.promises.length} promesses`}
         </p>
       </header>
-
-      <p className="flex items-start gap-2 rounded-2xl border border-blue-100 bg-blue-50/60 px-4 py-3 text-xs leading-relaxed text-blue-900">
-        <Info className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" />
-        Transcription, attribution des propos et évaluations sont produites automatiquement par IA. Chaque citation
-        renvoie à l’instant exact de la vidéo : vérifiez-la avant de la reprendre.
-      </p>
 
       {/* Vidéo + timeline */}
       <section className="space-y-6 rounded-[2.5rem] border border-slate-200/60 bg-white p-4 shadow-sm sm:p-8">
@@ -133,6 +127,11 @@ export function DebateView({ analysis }: { analysis: DebateAnalysis }) {
           </ul>
         </details>
       )}
+      {/* Mention discrète, en bas de page. */}
+      <p className="pt-2 text-center text-[11px] leading-relaxed text-slate-400">
+        Transcription, attribution des propos et évaluations produites automatiquement par IA. Chaque citation renvoie à
+        l’instant exact de la vidéo : vérifiez-la avant de la reprendre.
+      </p>
     </div>
   );
 }

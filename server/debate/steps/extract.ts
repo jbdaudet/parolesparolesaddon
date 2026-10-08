@@ -66,6 +66,8 @@ le rappel d'un bilan passé, les déclarations de valeurs sans mesure (« je cro
   (ex. « Porter le SMIC à 1 600 € net par mois d'ici 2028 »), sans nommer l'orateur et sans jugement.
   C'est cette phrase qui sera soumise à l'analyse de faisabilité.
 - quote : recopie exactement les mots du segment, sans les corriger.
+- Les segments marqués « résumé » ne sont pas les mots prononcés mais un résumé à la troisième personne :
+  extrais-en aussi les promesses, avec pour quote le passage du résumé qui les décrit.
 - N'extrais que des propos d'orateurs politiques (marqués comme tels dans la liste), jamais des modérateurs ni des autres intervenants.
 - Si un orateur répète une promesse dans cette séquence, ne la note qu'une fois (première formulation).`;
 
@@ -139,7 +141,9 @@ export function validatePromises(
       start: segment.start,
       segmentId: segment.id,
       quote: r.quote.trim(),
-      quoteVerified: quoteAppearsIn(r.quote, context),
+      // Un résumé n'est pas une citation : on ne la présente jamais comme vérifiée.
+      quoteVerified: !segment.paraphrased && quoteAppearsIn(r.quote, context),
+      ...(segment.paraphrased ? { paraphrased: true } : {}),
       statement: r.statement.trim(),
       theme: r.theme.trim(),
       topicId: analysis.topics.find((t) => segment.start >= t.start && segment.start < t.end)?.id,

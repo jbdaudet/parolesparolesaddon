@@ -53,24 +53,52 @@ export async function transcribe(ctx: StepContext): Promise<void> {
     windows.filter(([start]) => !done.has(start)),
     config.concurrency,
     async ([start, end]) => {
-      const { value } = await ctx.llm.generateJson<{ segments: RawSegment[] }>({
-        label: `transcribe ${formatTimestamp(start)}`,
-        model: config.videoModel,
-        input: [
-          {
-            type: 'video',
-            uri: analysis.video.url,
-            resolution: 'low',
-            processing: {
-              type: 'static',
-              start_offset: toOffset(start),
-              end_offset: toOffset(end),
-              fps: config.transcribeFps,
-            },
-          },
-          {
-            type: 'text',
-            text: `Transcris intégralement et mot pour mot cet extrait d'un ${kindNoun(analysis)} politique français.
+      const range = `${formatTimestamp(start)} – ${formatTimestamp(end)}`;
+      let raw: RawSegment[];
+      let paraphrased = false;
+      try {
+        raw = await transcribeWindow(ctx, start, end, 'verbatim');
+      } catch (err) {
+        if (!RECITATION_BLOCK.test(err instanceof Error ? err.message : String(err))) throw err;
+        // Gemini refuse de reproduire mot pour mot un contenu qu'il reconnaît (émission télévisée…).
+        // On ne contourne pas ce filtre : on résume les prises de parole, et on le signale.
+        raw = await transcribeWindow(ctx, start, end, 'summary');
+        paraphrased = true;
+        ctx.warn(
+          `Passage ${range} : transcription mot pour mot refusée par Gemini (droits d’auteur) ; propos résumés à la place.`,
+        );
+      }
+
+      const segments = toSegments(raw, start, end, knownIds, ctx.warn).map((seg) =>
+        paraphrased ? { ...seg, paraphrased: true } : seg,
+      );
+      analysis.transcript.push(...segments);
+      analysis.checkpoints.transcribedWindowStarts.push(start);
+      await ctx.checkpoint();
+      ctx.progress(++completed, windows.length, `Tronçon ${range}`);
+    },
+  );
+
+  // Ordre chronologique et identifiants stables t1, t2, …
+  analysis.transcript.sort((a, b) => a.start - b.start);
+  analysis.transcript.forEach((seg, i) => (seg.id = `t${i + 1}`));
+}
+
+/** Refus de Gemini de reproduire un contenu protégé (erreur 400 « recitation »). */
+const RECITATION_BLOCK = /recitation|copyright/i;
+
+async function transcribeWindow(
+  ctx: StepContext,
+  start: number,
+  end: number,
+  mode: 'verbatim' | 'summary',
+): Promise<RawSegment[]> {
+  const { analysis, config } = ctx;
+  const timing = `Horodatages au format MM:SS (ou H:MM:SS), mesurés depuis le début de la vidéo complète
+  (cet extrait commence à ${formatTimestamp(start)} et se termine à ${formatTimestamp(end)}).`;
+  const instructions =
+    mode === 'verbatim'
+      ? `Transcris intégralement et mot pour mot cet extrait d'un ${kindNoun(analysis)} politique français.
 
 Participants (utilise exclusivement ces identifiants) :
 ${describeSpeakers(analysis.speakers)}
@@ -80,27 +108,42 @@ Règles :
 - speaker_id : l'identifiant de la personne qui parle. Si tu n'es pas certain, utilise "unknown" plutôt que de deviner.
 - Quand deux personnes parlent en même temps, transcris la voix principale et attribue-la correctement.
 - Conserve les chiffres, montants et dates exactement comme prononcés.
-- Horodatages au format MM:SS (ou H:MM:SS), mesurés depuis le début de la vidéo complète
-  (cet extrait commence à ${formatTimestamp(start)} et se termine à ${formatTimestamp(end)}).
-- N'ajoute ni résumé ni commentaire.`,
-          },
-        ],
-        schema,
-        thinking: 'low',
-        maxOutputTokens: 32768,
-      });
+- ${timing}
+- N'ajoute ni résumé ni commentaire.`
+      : `Résume, prise de parole par prise de parole, ce que dit chaque participant dans cet extrait d'un
+${kindNoun(analysis)} politique français.
 
-      const segments = toSegments(value.segments, start, end, knownIds, ctx.warn);
-      analysis.transcript.push(...segments);
-      analysis.checkpoints.transcribedWindowStarts.push(start);
-      await ctx.checkpoint();
-      ctx.progress(++completed, windows.length, `Tronçon ${formatTimestamp(start)} – ${formatTimestamp(end)}`);
-    },
-  );
+Participants (utilise exclusivement ces identifiants) :
+${describeSpeakers(analysis.speakers)}
 
-  // Ordre chronologique et identifiants stables t1, t2, …
-  analysis.transcript.sort((a, b) => a.start - b.start);
-  analysis.transcript.forEach((seg, i) => (seg.id = `t${i + 1}`));
+Règles :
+- Un segment par prise de parole : qui parle (speaker_id, ou "unknown" en cas de doute) et quand.
+- text : résumé de 1 à 3 phrases à la troisième personne, avec ses propositions concrètes (mesures, chiffres,
+  échéances) telles qu'annoncées. Ne recopie pas les phrases prononcées : reformule.
+- ${timing}`;
+
+  const { value } = await ctx.llm.generateJson<{ segments: RawSegment[] }>({
+    label: `transcribe${mode === 'summary' ? '-summary' : ''} ${formatTimestamp(start)}`,
+    model: config.videoModel,
+    input: [
+      {
+        type: 'video',
+        uri: analysis.video.url,
+        resolution: 'low',
+        processing: {
+          type: 'static',
+          start_offset: toOffset(start),
+          end_offset: toOffset(end),
+          fps: config.transcribeFps,
+        },
+      },
+      { type: 'text', text: instructions },
+    ],
+    schema,
+    thinking: 'low',
+    maxOutputTokens: 32768,
+  });
+  return value.segments;
 }
 
 /** Convertit la réponse brute d'un tronçon en segments absolus et validés. */

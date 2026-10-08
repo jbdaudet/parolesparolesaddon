@@ -110,6 +110,13 @@ le stockage. Offre gratuite de Google : 8 h de vidéo YouTube par jour au maximu
   site (INTEGRATION.md § 4.4) remplace de toute façon celui-ci après fusion.
 - **Horodatages** : constaté sur l'API réelle, le modèle renvoie des temps absolus (depuis le début de la
   vidéo) même pour un extrait ; on les demande donc ainsi, et `detectTimeBase` rattrape un éventuel tronçon relatif.
+- **Contenus protégés (filtre « recitation » de Gemini)** : Gemini peut refuser de transcrire mot pour mot
+  un passage qu'il reconnaît (constaté le 8 octobre 2026 sur un extrait BFMTV, y compris par tronçons d'une
+  minute ; un discours publié par le candidat lui-même est passé sans problème). Le tronçon est alors
+  **résumé** prise de parole par prise de parole (`paraphrased: true` sur les segments et les promesses),
+  avec un avertissement. L'interface affiche « Propos résumés » au lieu d'une citation et renvoie à la vidéo.
+  Le filtre n'est volontairement pas contourné. Le modèle `gemini-3.5-transcribe` a été essayé : il ne
+  renvoie rien à partir d'une URL YouTube.
 - **Paroles simultanées** : la transcription garde la voix principale. Les citations marquées
   `quoteVerified: false` sont signalées dans l'interface (« Citation à vérifier dans la vidéo »).
 - **Débats à plus de deux orateurs** : gérés (un couloir par orateur, thèmes en haut), mais l'interface
