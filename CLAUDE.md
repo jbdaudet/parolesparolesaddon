@@ -1,18 +1,21 @@
 # Project
 
-<!-- Forker: replace this section with what the project does and why it exists. -->
-
-A Python project bootstrapped from [`template-container`](https://github.com/jbdaudet/template-container).
+Module « Vidéos » for parolesparoles.com: analyses YouTube debates and campaign speeches (transcript,
+speakers, promises, feasibility evaluations, timeline). TypeScript (React + Express + Gemini), developed
+standalone and meant to be merged into the site by its owner. Read [AGENTS.md](AGENTS.md) for conventions
+and [docs/INTEGRATION.md](docs/INTEGRATION.md) for the merge guide. The dev container comes from
+[`template-container`](https://github.com/jbdaudet/template-container).
 
 ## Environment
 
-Runs in a VS Code dev container based on `python:3.12-slim-bookworm` (Debian 12). Python 3.12 is on `PATH` as `python` and `python3`. The container is rebuilt from the `Dockerfile` at the repo root; runtime configuration lives in `.devcontainer/`.
+Runs in a VS Code dev container based on `python:3.12-slim-bookworm` (Debian 12), with Node.js 22 added through the devcontainer `node` feature. Python 3.12 is on `PATH` as `python` and `python3`. The container is rebuilt from the `Dockerfile` at the repo root; runtime configuration lives in `.devcontainer/`.
 
 ## Commands
 
-- Install dependencies: `pip install -r requirements.txt`
-- Run the app: <!-- Forker: define entry point, e.g. `python src/main.py` -->
-- Run tests: <!-- Forker: define, e.g. `pytest` -->
+- Install dependencies: `npm install`
+- Run the app: `npm run dev` (http://localhost:3000; demo mode without `GEMINI_API_KEY`)
+- Run tests: `npm test`; typecheck: `npm run typecheck`
+- Analyze a video from the CLI: `npm run analyze -- <youtube-url> [--debat|--discours]`
 
 ## Secrets
 
@@ -27,7 +30,7 @@ Runs in a VS Code dev container based on `python:3.12-slim-bookworm` (Debian 12)
 
 ## Dependencies
 
-Pin versions in `requirements.txt`. The dev container re-runs `pip install -r requirements.txt` on create via `.devcontainer/setup-environment.sh`.
+Pin exact versions in `package.json` (npm) and `requirements.txt` (Python). The dev container re-runs `pip install -r requirements.txt` on create via `.devcontainer/setup-environment.sh`.
 
 ## Skills
 

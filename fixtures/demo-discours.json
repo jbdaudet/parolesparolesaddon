@@ -1,0 +1,486 @@
+{
+  "schemaVersion": 1,
+  "id": "demo-discours",
+  "kind": "speech",
+  "video": {
+    "videoId": "demo-discours",
+    "url": "",
+    "title": "Discours fictif — meeting de démonstration",
+    "channel": "Paroles ? Paroles !",
+    "durationSec": 2700,
+    "airedOn": "2026-09-20"
+  },
+  "speakers": [
+    {
+      "id": "s1",
+      "name": "Julien Morel",
+      "role": "other",
+      "affiliation": "Maire (fictif)"
+    },
+    {
+      "id": "s2",
+      "name": "Claire Fontaine",
+      "role": "candidate",
+      "affiliation": "Horizon Commun (fictif)"
+    }
+  ],
+  "transcript": [
+    {
+      "start": 0,
+      "end": 150,
+      "speakerId": "s1",
+      "text": "Mes chers amis, merci d'être venus si nombreux. J'ai l'honneur d'accueillir Claire Fontaine.",
+      "id": "t1"
+    },
+    {
+      "start": 160,
+      "end": 290,
+      "speakerId": "s2",
+      "text": "Merci à vous, merci Julien. Je suis heureuse d'être ici ce soir.",
+      "id": "t2"
+    },
+    {
+      "start": 330,
+      "end": 415,
+      "speakerId": "s2",
+      "text": "Je veux vous parler de ce que nous ferons, concrètement, dès le premier jour.",
+      "id": "t3"
+    },
+    {
+      "start": 420,
+      "end": 495,
+      "speakerId": "s2",
+      "text": "Alors je vous le dis : nous passerons la fonction publique à la semaine de quatre jours d'ici 2029. C'est un engagement.",
+      "id": "t4"
+    },
+    {
+      "start": 610,
+      "end": 695,
+      "speakerId": "s2",
+      "text": "Je veux vous parler de ce que nous ferons, concrètement, dès le premier jour.",
+      "id": "t5"
+    },
+    {
+      "start": 700,
+      "end": 775,
+      "speakerId": "s2",
+      "text": "Alors je vous le dis : aucune aide publique n'ira à une entreprise qui ne respecte pas l'égalité salariale. C'est un engagement.",
+      "id": "t6"
+    },
+    {
+      "start": 960,
+      "end": 1045,
+      "speakerId": "s2",
+      "text": "Je veux vous parler de ce que nous ferons, concrètement, dès le premier jour.",
+      "id": "t7"
+    },
+    {
+      "start": 1050,
+      "end": 1125,
+      "speakerId": "s2",
+      "text": "Alors je vous le dis : pas plus de 20 élèves par classe dans toutes les écoles primaires. C'est un engagement.",
+      "id": "t8"
+    },
+    {
+      "start": 1560,
+      "end": 1645,
+      "speakerId": "s2",
+      "text": "Je veux vous parler de ce que nous ferons, concrètement, dès le premier jour.",
+      "id": "t9"
+    },
+    {
+      "start": 1650,
+      "end": 1725,
+      "speakerId": "s2",
+      "text": "Alors je vous le dis : nous rénoverons un million de logements chaque année. C'est un engagement.",
+      "id": "t10"
+    },
+    {
+      "start": 1810,
+      "end": 1895,
+      "speakerId": "s2",
+      "text": "Je veux vous parler de ce que nous ferons, concrètement, dès le premier jour.",
+      "id": "t11"
+    },
+    {
+      "start": 1900,
+      "end": 1975,
+      "speakerId": "s2",
+      "text": "Alors je vous le dis : la France sera à nouveau à l'avant-garde de l'écologie. C'est un engagement.",
+      "id": "t12"
+    },
+    {
+      "start": 2160,
+      "end": 2245,
+      "speakerId": "s2",
+      "text": "Je veux vous parler de ce que nous ferons, concrètement, dès le premier jour.",
+      "id": "t13"
+    },
+    {
+      "start": 2250,
+      "end": 2325,
+      "speakerId": "s2",
+      "text": "Alors je vous le dis : nous rouvrirons 500 points de service public dans nos campagnes. C'est un engagement.",
+      "id": "t14"
+    },
+    {
+      "start": 2560,
+      "end": 2690,
+      "speakerId": "s2",
+      "text": "Je compte sur vous. Vive la République et vive la France !",
+      "id": "t15"
+    }
+  ],
+  "topics": [
+    {
+      "id": "topic1",
+      "title": "Ouverture",
+      "start": 0,
+      "end": 300
+    },
+    {
+      "id": "topic2",
+      "title": "Travail et salaires",
+      "start": 300,
+      "end": 900
+    },
+    {
+      "id": "topic3",
+      "title": "École",
+      "start": 900,
+      "end": 1500
+    },
+    {
+      "id": "topic4",
+      "title": "Transition écologique",
+      "start": 1500,
+      "end": 2100
+    },
+    {
+      "id": "topic5",
+      "title": "Services publics",
+      "start": 2100,
+      "end": 2520
+    },
+    {
+      "id": "topic6",
+      "title": "Conclusion",
+      "start": 2520,
+      "end": 2700
+    }
+  ],
+  "promises": [
+    {
+      "id": "p1",
+      "speakerId": "s2",
+      "start": 420,
+      "segmentId": "t4",
+      "quote": "nous passerons la fonction publique à la semaine de quatre jours d'ici 2029",
+      "quoteVerified": true,
+      "statement": "Instaurer la semaine de quatre jours dans la fonction publique d'ici 2029",
+      "theme": "Travail",
+      "topicId": "topic2",
+      "specificity": "precise",
+      "repeats": [],
+      "evaluation": {
+        "data": {
+          "score": 5.0,
+          "verdict": "Expérimentations existantes, généralisation complexe selon les services",
+          "categoryScores": {
+            "legal": 7,
+            "budget": 5,
+            "operational": 3
+          },
+          "strengths": [
+            "Expérimentations déjà menées dans certaines administrations"
+          ],
+          "weaknesses": [
+            "Continuité du service public (hôpital, écoles) difficile à garantir"
+          ],
+          "alternatives": [],
+          "markdownReport": "> **Démonstration** — discours et évaluation fictifs, chiffres illustratifs.\n\nLa généralisation suppose une organisation différenciée selon les métiers."
+        },
+        "sources": [
+          {
+            "uri": "https://www.vie-publique.fr/",
+            "title": "vie-publique.fr"
+          }
+        ],
+        "evaluatedAt": "2026-10-08T09:00:00.000Z",
+        "evaluator": "demo"
+      }
+    },
+    {
+      "id": "p2",
+      "speakerId": "s2",
+      "start": 700,
+      "segmentId": "t6",
+      "quote": "aucune aide publique n'ira à une entreprise qui ne respecte pas l'égalité salariale",
+      "quoteVerified": true,
+      "statement": "Conditionner les aides publiques aux entreprises à l'égalité salariale femmes-hommes",
+      "theme": "Travail",
+      "topicId": "topic2",
+      "specificity": "precise",
+      "repeats": [],
+      "evaluation": {
+        "data": {
+          "score": 7.0,
+          "verdict": "Outils de mesure existants, mise en œuvre réaliste",
+          "categoryScores": {
+            "legal": 8,
+            "budget": 8,
+            "operational": 6
+          },
+          "strengths": [
+            "Index de l'égalité déjà calculé par les entreprises"
+          ],
+          "weaknesses": [
+            "Nombre d'aides concernées à préciser"
+          ],
+          "alternatives": [],
+          "markdownReport": "> **Démonstration** — discours et évaluation fictifs, chiffres illustratifs.\n\nL'index existant fournit une base de conditionnalité opérationnelle."
+        },
+        "sources": [
+          {
+            "uri": "https://www.vie-publique.fr/",
+            "title": "vie-publique.fr"
+          },
+          {
+            "uri": "https://www.insee.fr/fr/accueil",
+            "title": "INSEE"
+          }
+        ],
+        "evaluatedAt": "2026-10-08T09:00:00.000Z",
+        "evaluator": "demo"
+      }
+    },
+    {
+      "id": "p3",
+      "speakerId": "s2",
+      "start": 1050,
+      "segmentId": "t8",
+      "quote": "pas plus de 20 élèves par classe dans toutes les écoles primaires",
+      "quoteVerified": true,
+      "statement": "Limiter les classes à 20 élèves en primaire",
+      "theme": "École",
+      "topicId": "topic3",
+      "specificity": "precise",
+      "repeats": [],
+      "evaluation": {
+        "data": {
+          "score": 4.0,
+          "verdict": "Besoin important d'enseignants et de locaux",
+          "categoryScores": {
+            "legal": 8,
+            "budget": 4,
+            "operational": 3
+          },
+          "strengths": [
+            "Bénéfices pédagogiques documentés sur les petits effectifs"
+          ],
+          "weaknesses": [
+            "Recrutement de plusieurs milliers d'enseignants",
+            "Locaux insuffisants dans de nombreuses communes"
+          ],
+          "alternatives": [
+            {
+              "text": "Cibler d'abord les écoles en éducation prioritaire",
+              "explanation": "Concentre l'effort là où l'effet est le plus fort",
+              "impact": "Coût réduit"
+            }
+          ],
+          "markdownReport": "> **Démonstration** — discours et évaluation fictifs, chiffres illustratifs.\n\nLa mesure se heurte surtout aux capacités de recrutement et aux locaux."
+        },
+        "sources": [
+          {
+            "uri": "https://www.education.gouv.fr/",
+            "title": "education.gouv.fr"
+          },
+          {
+            "uri": "https://www.ccomptes.fr/fr",
+            "title": "Cour des comptes"
+          }
+        ],
+        "evaluatedAt": "2026-10-08T09:00:00.000Z",
+        "evaluator": "demo"
+      }
+    },
+    {
+      "id": "p4",
+      "speakerId": "s2",
+      "start": 1650,
+      "segmentId": "t10",
+      "quote": "nous rénoverons un million de logements chaque année",
+      "quoteVerified": true,
+      "statement": "Rénover un million de logements par an",
+      "theme": "Transition écologique",
+      "topicId": "topic4",
+      "specificity": "precise",
+      "repeats": [],
+      "evaluation": {
+        "data": {
+          "score": 3.5,
+          "verdict": "Objectif très au-dessus du rythme actuel et des capacités de la filière",
+          "categoryScores": {
+            "legal": 7,
+            "budget": 3,
+            "operational": 2
+          },
+          "strengths": [
+            "Dispositifs d'aide existants"
+          ],
+          "weaknesses": [
+            "Manque d'artisans qualifiés",
+            "Coût public élevé"
+          ],
+          "alternatives": [],
+          "markdownReport": "> **Démonstration** — discours et évaluation fictifs, chiffres illustratifs.\n\nLe rythme visé dépasse largement les capacités actuelles de la filière du bâtiment."
+        },
+        "sources": [
+          {
+            "uri": "https://www.ecologie.gouv.fr/",
+            "title": "ecologie.gouv.fr"
+          }
+        ],
+        "evaluatedAt": "2026-10-08T09:00:00.000Z",
+        "evaluator": "demo"
+      }
+    },
+    {
+      "id": "p5",
+      "speakerId": "s2",
+      "start": 1900,
+      "segmentId": "t12",
+      "quote": "la France sera à nouveau à l'avant-garde de l'écologie",
+      "quoteVerified": true,
+      "statement": "Faire de la France un leader de l'écologie",
+      "theme": "Transition écologique",
+      "topicId": "topic4",
+      "specificity": "vague",
+      "repeats": [],
+      "evaluation": {
+        "data": {
+          "score": 3.0,
+          "verdict": "Intention trop générale pour être évaluée",
+          "categoryScores": {
+            "legal": 5,
+            "budget": 3,
+            "operational": 3
+          },
+          "strengths": [
+            "Objectif mobilisateur"
+          ],
+          "weaknesses": [
+            "Aucune mesure précise"
+          ],
+          "alternatives": [],
+          "markdownReport": "> **Démonstration** — discours et évaluation fictifs, chiffres illustratifs.\n\nSans mesure identifiée, seule une évaluation de principe est possible."
+        },
+        "sources": [
+          {
+            "uri": "https://www.ecologie.gouv.fr/",
+            "title": "ecologie.gouv.fr"
+          }
+        ],
+        "evaluatedAt": "2026-10-08T09:00:00.000Z",
+        "evaluator": "demo"
+      }
+    },
+    {
+      "id": "p6",
+      "speakerId": "s2",
+      "start": 2250,
+      "segmentId": "t14",
+      "quote": "nous rouvrirons 500 points de service public dans nos campagnes",
+      "quoteVerified": true,
+      "statement": "Rouvrir 500 bureaux de poste et maisons France Services en zone rurale",
+      "theme": "Services publics",
+      "topicId": "topic5",
+      "specificity": "precise",
+      "repeats": [],
+      "evaluation": {
+        "data": {
+          "score": 6.5,
+          "verdict": "Réseau existant extensible, financement à pérenniser",
+          "categoryScores": {
+            "legal": 8,
+            "budget": 6,
+            "operational": 6
+          },
+          "strengths": [
+            "Réseau France Services déjà déployé"
+          ],
+          "weaknesses": [
+            "Financement de fonctionnement durable à prévoir"
+          ],
+          "alternatives": [],
+          "markdownReport": "> **Démonstration** — discours et évaluation fictifs, chiffres illustratifs.\n\nL'extension s'appuie sur un réseau existant ; le coût de fonctionnement est le point d'attention."
+        },
+        "sources": [
+          {
+            "uri": "https://www.vie-publique.fr/",
+            "title": "vie-publique.fr"
+          },
+          {
+            "uri": "https://www.ccomptes.fr/fr",
+            "title": "Cour des comptes"
+          }
+        ],
+        "evaluatedAt": "2026-10-08T09:00:00.000Z",
+        "evaluator": "demo"
+      }
+    }
+  ],
+  "reports": [
+    {
+      "speakerId": "s2",
+      "stats": {
+        "promiseCount": 6,
+        "evaluatedCount": 6,
+        "preciseCount": 5,
+        "averageScore": 4.8,
+        "bands": {
+          "good": 1,
+          "mid": 3,
+          "bad": 2
+        },
+        "categoryAverages": {
+          "legal": 7.2,
+          "budget": 4.8,
+          "operational": 3.8
+        },
+        "speakingTimeSec": 1220
+      },
+      "summary": "Dans ce discours, Claire Fontaine a formulé six engagements, dont cinq précis, sur le travail, l'école, la transition écologique et les services publics. Les mesures appuyées sur des dispositifs existants (égalité salariale, France Services) apparaissent réalisables ; les objectifs de volume (classes à 20 élèves, un million de rénovations par an) se heurtent aux capacités de recrutement et de la filière.",
+      "strengths": [
+        "Plusieurs mesures s'appuient sur des outils existants",
+        "Engagements majoritairement chiffrés"
+      ],
+      "weaknesses": [
+        "Objectifs de volume supérieurs aux capacités actuelles",
+        "Financement global non détaillé"
+      ]
+    }
+  ],
+  "completedSteps": [
+    "survey",
+    "transcribe",
+    "topics",
+    "extract",
+    "evaluate",
+    "summarize"
+  ],
+  "checkpoints": {
+    "transcribedWindowStarts": []
+  },
+  "models": {
+    "video": "demo",
+    "text": "demo",
+    "evaluation": "demo"
+  },
+  "warnings": [
+    "Discours entièrement fictif : personnages, propos et évaluations inventés pour la démonstration."
+  ],
+  "createdAt": "2026-10-08T09:00:00.000Z",
+  "updatedAt": "2026-10-08T08:00:00.000Z"
+}

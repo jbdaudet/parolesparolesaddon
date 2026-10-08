@@ -230,3 +230,7 @@ history/runs/*
 *.xls
 *.pkl
 *.parquet
+
+# Node / module Débat
+node_modules/
+*.tmp
